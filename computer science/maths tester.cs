@@ -2,8 +2,10 @@ using System;
 
 Console.WriteLine("Welcome To The Maths Tester");
 
+int score = 0;
 bool running = true;
 int tot = 0;
+int userin = 0;
 string problem = "";
 double answer = 0;
 static string generate_problem(int total_mathstuff)
@@ -42,8 +44,7 @@ while (running) {
     {
         switch (splitproblem[sub]) {
             case "+":
-                answer += int.Parse(splitproblem[sub+1]);
-
+                answer += int.Parse(splitproblem[sub + 1]);
                 break;
             case "-":
                 answer -= int.Parse(splitproblem[sub + 1]);
@@ -56,6 +57,12 @@ while (running) {
                 break;
         }
     }
-    Console.WriteLine(answer);
-    Console.ReadLine();
+    
+    userin = int.Parse(Console.ReadLine());
+    if (userin == answer) {
+        score += 1
+    } else {
+        running = False
+    }
 }
+Console.WriteLine("You won a total of " + score);
